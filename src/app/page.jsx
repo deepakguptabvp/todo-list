@@ -37,7 +37,6 @@ const page = () => {
         <div className="flex flex-grow items-center justify-center bg-gray-900 h-full">
 
           {/* <!-- Component Start --> */}
-
           <div className="max-w-full p-6 bg-gray-800 rounded-lg shadow-lg w-5/12 text-gray-200">
 
             <div className="flex items-center mb-6">
@@ -47,22 +46,32 @@ const page = () => {
               <h4 className="font-semibold ml-3 text-lg">ToDo - List Application</h4>
             </div>
 
-            <div className="flex items-center m-2">
-              <input className="flex-grow h-8 m-2 bg-transparent focus:outline-none font-medium " type="text" value={inputList} placeholder="add a new task here !" onChange={itemEvent} />
-              <button onClick={listOfItems} className="flex items-center h-8 w-8 text-center mt-2 text-sm font-medium  hover:animate-pulse">
-                <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 512 512">
-                  <path fill="#fafafa" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344V280H168c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H280v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" /></svg>
+            {/* add task button */}
+            <div className="flex items-center todo-form">
+              <input className="flex-grow m-2 bg-transparent focus:outline-none font-medium todo-input" type="text" value={inputList} placeholder="What's the task for today!" onChange={itemEvent} />
+              <button onClick={listOfItems} className="flex font-medium rounded-t-lg rounded-s-lg rounded-e-lg todo-btn">
+                Add Task
               </button>
             </div>
 
+            {/* mapping of added tasks */}
             <ol>
               {Items?.map((itemValue, index) => {
                 return <TodoList key={index} id={index} onSelect={deleteItem} text={itemValue} />
               })}
             </ol>
 
+          </div>
+        </div>
+      </div>
+    </>
+  )
+};
 
-            {/* <div>
+export default page;
+
+
+{/* <div>
             <input className="hidden" type="checkbox" id="task_8" />
             <label className="flex items-center h-10 px-2 rounded cursor-pointer hover:bg-gray-900" htmlFor="task_8">
               <span className="flex items-center justify-center w-5 h-5 text-transparent border-2 border-gray-500 rounded-full">
@@ -73,12 +82,3 @@ const page = () => {
               <span className="ml-4 text-sm">Boil, mash, and stick potatoes in stew.</span>
             </label>
           </div> */}
-
-          </div>
-        </div>
-      </div>
-    </>
-  )
-};
-
-export default page;
