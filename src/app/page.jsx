@@ -48,8 +48,8 @@ const page = () => {
 
             {/* add task button */}
             <div className="flex items-center todo-form">
-              <input className="flex-grow m-2 bg-transparent focus:outline-none font-medium todo-input" type="text" value={inputList} placeholder="What's the task for today!" onChange={itemEvent} />
-              <button onClick={listOfItems} className="flex font-medium rounded-t-lg rounded-s-lg rounded-e-lg todo-btn">
+              <input className="flex-grow m-2 bg-transparent focus:outline-none font-medium todo-input" type="text" value={inputList} placeholder="What's the task for today!" onChange={itemEvent} title="What's the task for today!"/>
+              <button onClick={listOfItems} className="flex font-medium rounded-t-lg rounded-s-lg rounded-e-lg todo-btn" title="Add Task">
                 Add Task
               </button>
             </div>
